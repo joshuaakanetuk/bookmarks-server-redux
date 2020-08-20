@@ -1,5 +1,5 @@
 const express = require("express");
-const { v4: uuid } = require("uuid");
+const { v4: uuidv4 } = require('uuid');
 
 const bookmarksRouter = express.Router();
 const bodyParser = express.json();
@@ -31,7 +31,7 @@ bookmarksRouter
       return res.status(400).send(`'url' must be a valid URL`);
     }
 
-    const bookmark = { id: uuid(), title, url, description, rating };
+    const bookmark = { id: uuidv4(), title, url, description, rating };
 
     store.push(bookmark);
 
